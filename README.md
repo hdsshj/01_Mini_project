@@ -1,2 +1,2 @@
 # 01_Mini_project
-My_nickname_maker
+항해99 3기 1주차 미니프로젝트 "내 이름을 정해줘!" 웹사이트 제작
