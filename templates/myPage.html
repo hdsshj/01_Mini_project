@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <meta property="og:url"                content="http://mynickname.shop/" />
+        <meta property="og:type"               content="website" />
+        <meta property="og:title"              content="내 이름을 정해줘!" />
+        <meta property="og:description"        content="닉네임을 못골랐어? 들어와!" />
+        <meta property="og:image"              content="{{ url_for('static', filename='ogIMG.png') }}" />
+        <title>내 이름을 정해줘! | 마이페이지</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+        <link rel="stylesheet" href="../static/css/common.css">
+        <link rel="stylesheet" href="../static/css/mypage.css">
+        
+
+        <script>
+
+            function view_nick() {
+                $.ajax({
+                    type: "GET",
+                    url: "/view_mynick",
+                    data: {},
+                    success: function (response) {
+                        let all_nick = response['mynicks']                                              // 닉네임 리스트 생성
+                        let db_count = 0                                                                // 닉네임 개수 세기
+
+                        console.log(all_nick)
+                        for (let i = 0; i < all_nick.length; i++) {                                     // 총 개수의 길이만큼 db_count 개수 증가
+                            db_count += 1
+                            if(db_count < 9) {                                                          // 닉네임 개수가 9개 미만이라면
+
+
+                                let mynick = all_nick[i]['nick']                                        // 닉네임 값만 변수에 담아서
+
+
+
+                                let temp_html = `<li>
+                                                <p id="ListSavedName">${mynick}</p>
+                                                
+                                                <span class="line"></span>
+                                            </li>`                                                      // 양식
+
+                                $('#nicksList').append(temp_html)                                       // 양식에 삽입하기
+                            }
+                        }
+                    }
+
+
+
+                })
+            }
+            view_nick();
+
+            
+
+
+            // $.ajax({type: "GET", url: "", data: {}, success: function (response) {}})
+
+            // $('.ListDel').click(function () {
+            //     $.ajax({type: "POST", url: "", data: {}, success: function (response) {}})
+            //     location.reload();
+            // });
+
+        </script>
+    <!-- <script src="../static/js/mypage.js"></script> -->
+    </head>
+
+    <body>
+
+        <article>
+            
+
+            <section class="MyPageBox">
+
+                <p class="thisPlace"><a href="/">>처음으로 돌아가기</a></p>
+
+                <div class="title">
+                    <span class="highlignt"></span>
+                    <h1>나의 닉네임들</h1>
+
+                </div>
+                <p class="can">8개까지만 저장할 수 있어!</p>
+                <section id="NameList">
+
+                    <ul id="nicksList">
+
+                    </ul>
+                </section>
+
+            </section>
+        </article>
+    </body>

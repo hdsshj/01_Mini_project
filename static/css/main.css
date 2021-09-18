@@ -1,0 +1,432 @@
+@charset "utf-8";
+
+/*animation*/
+@keyframes FadeShow {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes sizeUp {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+
+@keyframes ShowResult {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+
+@keyframes buttonAni {
+    0% {transform: scale(1);}
+    50% {transform: scale(.9);}
+    100% {transform: scale(1);}
+}
+
+/* 자바스크립트로 클래스 제어했을때 변경되는 것들 */
+.NoClick {
+    cursor: copy;
+    pointer-events: none;
+}
+.boxAni {
+    animation: sizeUp 1.5s ease 1s;
+    animation-fill-mode: forwards;
+}
+.ShowAni {
+    animation: ShowResult 2s ease;
+}
+.buttonGradientAni {
+    animation: buttonAni 3s ease infinite;
+}
+
+/* html 디자인 */
+
+/* 헤더 */
+header {
+    position: absolute;
+    top: 14px;
+    width: 100vw;
+    max-width: 1194px;
+    text-align: right;
+    z-index: 10000;
+}
+
+/* 마이페이지로 가는 링크 */
+header a {
+    font-size: 1.5rem;
+    margin-right: 3%;
+}
+header a:hover {
+    color: #00FFC2;
+}
+
+/*플렉스를 사용하여 내용물 중앙정렬*/
+#GetPage,
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 사용자가 옵션을 넣는 페이지 박스 */
+#GetPage {
+    width: 62.5%;
+    flex-direction: column;
+    min-width: 800px;
+}
+/* 캐릭터 위 대사 */
+.myName {
+    font-size: 3rem;
+    text-align: center;
+}
+/* 캐릭터 이미지 조절 */
+#character img {
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+/*사용자 옵션*/
+#option {
+    width: 60%;
+}
+
+/* 사용자옵션 내용물 박스 */
+.assignWord,
+.maxWord,
+.nounOption {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+/* 사용자 옵션 명칭 텍스트 조절 */
+.assignWord > p,
+.maxWord > p,
+.nounOption > p {
+    font-size: 2rem;
+    display: inline-block;
+    flex-basis: 25%;
+    line-height: 30px;
+}
+
+/* 옵션 명칭과 옵션 입력창 비율 조정 */
+.assignWord > section,
+.maxWord > section,
+.nounOption > section {
+    flex-basis: 75%;
+}
+
+/* 옵션 설정 텍스트조정*/
+.maxWord output,
+.maxWord section p,
+.wordOption p,
+label > p {
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+/* 고정단어 input 박스 디자인 */
+.assignWord .textInput input {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #ffffff;
+}
+
+/* 고정단어 input 박스 라벨 디자인 */
+.assignWord .textInput label {
+    position: absolute;
+    font-size: 1.16rem;
+    margin-top: 11.5px;
+    margin-left: 20px;
+}
+
+/* 고정단어 input 박스 텍스트 제거 버튼 */
+.assignWord .textClear {
+    background: url("../img/inputTextClear.svg");
+}
+
+/* 고정단어 옵션 명칭 위치 조정 */
+.assignWord > p {
+    margin-top: 5px;
+}
+
+/* 고정단어 단어 종류 옵션 */
+.wordOption {
+    text-align: right;
+    margin-top: 10px;
+}
+/* 태그에 마우스 올리면 클릭 커서로 변경 */
+.wordOption p {
+    cursor: pointer;
+}
+
+/* 선택안된 태그 투명도 50% */
+.wordOption .off {
+    opacity: 0.5;
+}
+
+/* 고정단어에서 명사 눌렀을 때 명사종류 선택 못하게 막기 */
+.clickNoun {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 형용사 명사 완전랜덤 버튼 구분자 */
+.wordOption span {
+    display: inline-block;
+    width: 0;
+    height: 15px;
+    border: 1px solid #FFFFFF;
+    border-radius: 2px;
+    margin: 0 6px;
+    vertical-align: -1.5px;
+}
+
+/* 최대글자수 박스 */
+.maxWord section {
+    position: relative;
+    width: 100%;
+}
+
+/* 최대글자수 range input 디자인 */
+.maxWord input {
+    -webkit-appearance: none;
+    width: 86%;
+    height: 0;
+    border-radius: 5px;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border: 2px solid #9BB2FF;
+    position: absolute;
+    left: 0;
+    top: 13px;
+}
+.maxWord input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #00FFC2;
+    cursor: pointer;
+}
+.maxWord input::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #00FFC2;
+    cursor: pointer;
+}
+
+/* 글자수 카운트 박스 */
+.maxWord section div {
+    float: right;
+    margin-top: 3.5px;
+}
+.maxWord section div::after {
+    clear: both;
+}
+
+/* 명사종류 옵션 선택 박스 */
+.nounOption section > div {
+    width: 60px;
+    height: 23px;
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 3.4px;
+}
+
+/* 명사종류 체크박스 라벨*/
+.nounOption section .checks {
+    width: 60px;
+    height: 23px;
+}
+/* 명사종류 체크박스 텍스트 */
+.nounOption .checks p {
+    position: absolute;
+    color: #fff;
+    left: 0;
+}
+/* 텍스트와 체크박스 사이 간격 */
+.nounOption .checks .checkmark {
+    left: 40px;
+}
+
+.checks {
+    position: relative;
+    cursor: pointer;
+}
+/*라벨 디자인*/
+
+/* 여기부터는 인터넷에서 찾은 체크박스 디자인 변경하는 코드입니다. */
+.checks input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+}
+/*기본체크박스 제거*/
+.checkmark {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url("../img/CheckOFF.svg") no-repeat;
+}
+/*새로운 체크박스 생성*/
+.checks input:checked ~ .checkmark {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: url("../img/CheckON.svg");
+}
+/*체크시 변경되는 부분*/
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.checks input:checked ~ .checkmark:after {
+    display: block;
+}
+/*체크시 체크전 박스 제거*/
+
+/* 엔터 버튼 */
+#enter {
+    width: 60%;
+    height: 60px;
+    font-size: 3rem;
+    background: #1be0ae;
+    border-radius: 15px;
+    margin-top: 56px;
+}
+
+/* random name result page */
+#ResultPage {
+    animation: FadeShow 2s ease;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+}
+
+/*결과 콘텐츠 박스*/
+#ResultContent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 닉네임 결과 */
+.NameResult {
+    color: #00FFC2;
+    font-size: 4rem;
+    margin-bottom: 40px;
+}
+/* 캐릭터 이미지 */
+#ResultPage img {
+    height: 400px;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+/* '이 이름이 마음에 드니?' 태그 */
+.textBox p {
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 선택지 박스 */
+.textBox div {
+    transform: scale(0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 460px;
+    height: 230px;
+    background: #FFFFFF;
+    border: 5px solid #1BE0AE;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+.textBox ul li {
+    font-size: 2rem;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0.5;
+    color: #525252;
+    margin-bottom: 8px;
+}
+.textBox ul li:last-child {
+    margin: 0;
+}
+.textBox ul li span {
+    opacity: 0;
+}
+
+.textBox ul li:hover {
+    color: #00FFC2;
+    opacity: 1;
+}
+.textBox ul li:hover span {
+    opacity: 1;
+}
+
+/* 닉네임 저장시 뜨는 창 배경 */
+#saveName {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(54,54,54,.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 저장 알림 박스 */
+#saveName #box {
+    animation: FadeShow 2s ease;
+    width: 80%;
+    max-width: 579px;
+    height: 400px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10000;
+}
+/* 알림박스 닫기버튼 */
+#saveName #box .close {
+    position: absolute;
+    background: url("../img/closeIcon.svg");
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+/* 알림박스 텍스트 */
+#saveName #box p:first-child {
+    font-size: 3rem;
+    color: #525252;
+    width: 80%;
+    margin: 0 auto;
+}
+#saveName #box p span {
+    color: #00FFC2;
+}
+#saveName #box p:last-child {
+    font-size: 1.5rem;
+    width: 80%;
+    margin: 20px auto 0;
+    color: #a0a0a0;
+    text-align: right;
+
+}

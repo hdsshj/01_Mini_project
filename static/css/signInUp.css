@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+/* 사이트 이름 */
+h1 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+    top: 200px;
+    z-index: 100;
+
+}
+
+/* 배경 */
+#firstpage {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: #3864FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+}
+
+/* 로그인&회원가입 박스 */
+#box {
+    width: 438px;
+    height: 353px;
+    /*signIn 353 signUp 409*/
+    background: #ffffff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: right;
+    position: relative;
+}
+
+/* 로그인 내용물 첫 화면에서 보이게*/
+#signIn {
+    display: block;
+}
+/* 회원가입 내용물 첫 화면에서 안보이게*/
+#signUp {
+    display: none;
+}
+
+/* 아이디와 회원가입창 내용물 크기 정해주기 */
+#signIn div,
+#signUp div {
+    width: 350px;
+    text-align: left;
+}
+
+/* ID,PW */
+#signIn div > p,
+#signUp div > p {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+/*  input 박스 디자인*/
+#signIn input,
+#signUp input {
+    border: 2px solid #ccc;
+    color: #a0a0a0;
+}
+
+/* 로그인하는 버튼, 회원가입 완료 버튼 */
+#login,
+#signUpbutton {
+    width: 350px;
+    height: 40px;
+    font-size: 2rem;
+    border-radius: 15px;
+    margin-top: 50px;
+}
+#login {
+    background: #1BE0AE;
+}
+#signUpbutton {
+    background: #3864FF;
+}
+#login:hover {
+    box-shadow: inset 2px 2px 5px #2f937a;
+}
+
+/* 내용물 박스 가운데 정렬 */
+#signIn section > div {
+    margin: 0 auto;
+}
+
+/* 비밀번호 위에 여백 */
+#signIn section:first-child > div:nth-child(2) {
+    margin-top: 20px;
+}
+
+/*  회원가입으로 넘어가는 태그 및 경고문창*/
+#signIn > section:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* 경고문 디자인 */
+.wrong {
+    color: #FF0000;
+    font-size: 1rem;
+    height: 1rem;
+    display: block;
+}
+
+/* 회원가입으로 가는 버튼 */
+#goToSignUp {
+    color: #3864FF;
+    display: inline-block;
+}
+
+/* 회원가입창 경고음 */
+#signUp .wrong {
+    display: block;
+    margin-top: 4px;
+    width: 100%;
+    text-align: right;
+}
+/* 회원가입창 비밀번호 위 여백 */
+#signUp .suPW {
+    margin-top: 10px;
+}
+/* 뒤로가기 버튼*/
+#signUp .back {
+    height: 15px;
+    position: absolute;
+    top: 15px;
+    width: 16.07px;
+    background: url("../img/backIcon.svg");
+    background-size: contain;
+    background-position: center;
+    left: 15px;
+}

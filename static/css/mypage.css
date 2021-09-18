@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+@keyframes moveUp {
+    0% {transform: translate(-50%, 100%);}
+    100% {transform: translate(-50%, 0%);}
+}
+
+/* 전체 박스 */
+article {
+    position: relative;
+    height: 100%;
+}
+
+/*  내용물 박스*/
+.MyPageBox {
+    width: 62%;
+    min-width: 480px;
+    height: 861px;
+    position: absolute;
+    bottom: 0;
+    background: #FFFFFF;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 50px 50px 0 0;
+    left: 50%;
+    transform: translate(-50%);
+    animation: moveUp 1s ease;
+}
+
+/* 처음으로 돌아가기 버튼 */
+/* 현위치로 적었으나 이후 처음으로 돌아가는 버튼으로 변경했음 */
+.thisPlace a {
+    color: #a0a0a0;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+#ListSavedName,
+.title h1 {
+    color: #000;
+}
+/* 타이틀 디자인 */
+.title {
+    position: relative;
+    height: 36px;
+    width: 194px;
+    top: 114px;
+    left: 8.5%;
+}
+.title h1 {
+    position: absolute;
+    font-size: 3rem;
+    z-index: 100;
+    width: 100%;
+    text-align: center;
+}
+.title .highlignt {
+    position: absolute;
+    width: 100%;
+    height: 15px;
+    bottom: 2px;
+    bottom: 0;
+    left: 0;
+    background: #00FFC2;
+    z-index: 10;
+}
+
+/* 8개까지만 저장할 수 있다는 문구 */
+.can {
+    font-size: 1.5rem;
+    color: #a0a0a0;
+    position: absolute;
+    right: 8.5%;
+    top: 170px;
+}
+
+/* 이하 닉네임 리스트 디자인 */
+#NameList {
+    max-width: 786px;
+    width: 82%;
+    margin: 173px auto 0;
+}
+#NameList ul {
+    width: 100%;
+}
+#NameList ul li {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+#ListSavedName {
+    font-size: 2rem;
+    line-height: 40px;
+}
+
+/* 구분선 */
+#NameList .line {
+    position: absolute;
+    width: 100%;
+    border: 1px solid #a0a0a0;
+    border-radius: 10px;
+    bottom: 0;
+}

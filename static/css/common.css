@@ -1,0 +1,62 @@
+/* 모든 페이지에 공통으로 적용되는 css 파일 */
+
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Sunflower:wght@300&display=swap');
+
+/*기본으로 지정된 값들을 초기화한 뒤 모든 페이지에 공통으로 적용되는 부분을 수정*/
+body,p,ol,dl,dt,dd,div,ul,li,header,h1,h2,h3,h4,h5,h6,table, tr,td,th,form,fieldlist,input,label,textarea,select,button,footer{margin: 0; padding: 0; font-style: normal;}
+body,button,input{font-family: "Jua",sans-serif; color: #fff;}
+h1,h2,h3,h4,h5 {color:#fff; line-height: 1;}
+a{text-decoration: none; color:#fff;}
+ul,li,ol{list-style:none;}
+img,fieldset{border:none; vertical-align: middle;}
+strong,em,address{font-weight: normal; font-style: normal;}
+table{border-collapse: collapse;}
+button{border:0; outline: 0; background-color: transparent; cursor: pointer;}
+p {word-break: keep-all;}
+
+html{font-size: 12px; height: 100%;} /*1rem = 12px*/
+
+body{background: #3864FF; overflow-x: hidden; height: 100%;}
+body {margin: 0;}   
+
+/* 사용횟수가 적은 폰트는 클래스를 넣으면 사용할 수 있도록 분리 */
+.fontSunflower {
+font-family: 'Sunflower',sans-serif;
+}
+
+
+/*Text Input 박스 기본 디자인 변경*/
+.textInput {
+    position: relative;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    height: auto;
+    line-height: normal;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    box-shadow: inset -3px 3px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    outline-style: none;
+    /* 포커스시 발생하는 효과 제거를 원한다면 */
+    -webkit-appearance: none;
+    /* 브라우저별 기본 스타일링 제거 */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* 클리어버튼 */
+.textClear {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url("../img/inputTextClearGray.svg");
+    right: 20px;
+    top: 10.5px;
+    display: none;
+}
+
+
